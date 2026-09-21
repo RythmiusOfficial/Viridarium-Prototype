@@ -1,11 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_smiley",
+  "%Name":"obj_debug_player",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_smiley",
+  "name":"obj_debug_player",
   "overriddenProperties":[],
   "parent":{
     "name":"viridarium_prototype",
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_smiley",
-    "path":"sprites/spr_smiley/spr_smiley.yy",
+    "name":"spr_debug_player",
+    "path":"sprites/spr_debug_player/spr_debug_player.yy",
   },
   "spriteMaskId":null,
   "visible":true,
