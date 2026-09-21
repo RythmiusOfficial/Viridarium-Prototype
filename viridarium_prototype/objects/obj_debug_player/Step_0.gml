@@ -30,7 +30,16 @@ if (place_meeting(x, y + vsp, obj_debug_wall)) {
 
 // Move
 x += hsp;
+global.custx += sign(hsp);
 y += vsp;
+global.custy += -(sign(vsp));
 hsp = 0;
 vsp = 0;
+
+// Debug
+if pressed {
+	show_debug_message(global.custx);
+	show_debug_message(global.custy);
+}
+
 pressed = false;
