@@ -19,7 +19,9 @@
   },
   "name":"viridarium_prototype",
   "resources":[
+    {"id":{"name":"obj_smiley","path":"objects/obj_smiley/obj_smiley.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"spr_smiley","path":"sprites/spr_smiley/spr_smiley.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
