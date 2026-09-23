@@ -92,11 +92,35 @@ if pressed = true {
 	}
 }
 
-// COLLISIONS
+// COLLISIONS; if 0 or 14 is part of the custpx/py, this code will break because it'll try and retrieve a nonexistent #
+// x checks
+if global.map[# (global.custpx + sign(hsp)), global.custpy] == 1 {
+	hsp = 0;
+	show_debug_message(string("found collision ahead"));
+}
+if run == true {
+	if !global.map[# (global.custpx + (sign(hsp) * 2)), global.custpy] == 1 {
+		hsp *= 2;
+	} else {
+		run = false;
+	}
+}
+if global.map[# global.custpx, (global.custpy + sign(vsp))] == 1 {
+	vsp = 0;
+	show_debug_message(string("found collision ahead"));
+}
+if run == true {
+	if !global.map[# global.custpx, (global.custpy + (sign(vsp) * 2))] == 1 {
+		vsp *= 2;
+	} else {
+		run = false;
+	}
+}
+/*
 if place_meeting(x + hsp, y, obj_debug_wall) {
 	hsp = 0;
 }
-if run = true {
+if run == true {
 	if !place_meeting(x + (hsp * 2), y, obj_debug_wall) {
 		hsp *= 2;
 	} else {
@@ -106,21 +130,22 @@ if run = true {
 if place_meeting(x, y + vsp, obj_debug_wall) {
 	vsp = 0;
 }
-if run = true {
+if run == true {
 	if !place_meeting(x, y + (vsp * 2), obj_debug_wall) {
 		vsp *= 2;
 	} else {
 		run = false
 	}
 }
+*/
 
 // MOVE
 x += hsp;
 y += vsp;
 // update the custom coordinates
 for (i = 0; i < (run + 1); i ++) {
-	global.custx += sign(hsp);
-	global.custy += -(sign(vsp));
+	global.custpx += sign(hsp);
+	global.custpy += sign(vsp);
 }
 // if perceiving and an action goes by, close the perception
 if pressed and perceiving {

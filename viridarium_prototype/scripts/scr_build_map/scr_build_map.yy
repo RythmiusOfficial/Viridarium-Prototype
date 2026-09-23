@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_build_map",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_build_map",
+  "parent":{
+    "name":"viridarium_prototype",
+    "path":"viridarium_prototype.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

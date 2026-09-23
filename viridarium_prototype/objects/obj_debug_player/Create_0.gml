@@ -28,5 +28,5 @@ chemicalactive = false;
 chemicaltype = 0;
 perceiving = false;
 
-global.custx = 7;
-global.custy = 2;
+global.custpx = 7;
+global.custpy = 12;

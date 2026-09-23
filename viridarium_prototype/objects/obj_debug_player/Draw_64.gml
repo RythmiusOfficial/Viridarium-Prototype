@@ -1,5 +1,5 @@
-draw_text(10, 10, "custx: " + string(global.custx));
-draw_text(10, 25, "custy: " + string(global.custy));
+draw_text(10, 10, "custx: " + string(global.custpx));
+draw_text(10, 25, "custy: " + string(global.custpy));
 draw_text(10, 40, "direction: " + string(dir));
 draw_text(10, 55, "div turn: " + string(dir div turnsize));
 draw_text(10, 70, "forward: " + string(forward));
@@ -10,3 +10,6 @@ draw_text(10, 130, "run: " + string(run));
 draw_text(10, 145, "root: " + string(rooted));
 draw_text(10, 160, "chem: " + string(chemicalactive));
 draw_text(10, 175, "see: " + string(perceiving));
+
+var _res = global.map[# global.custpx, global.custpy];
+draw_text(10, 190, "debugwall: " + string(_res));

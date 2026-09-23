@@ -21,7 +21,9 @@
   "resources":[
     {"id":{"name":"obj_debug_player","path":"objects/obj_debug_player/obj_debug_player.yy",},},
     {"id":{"name":"obj_debug_wall","path":"objects/obj_debug_wall/obj_debug_wall.yy",},},
+    {"id":{"name":"obj_world","path":"objects/obj_world/obj_world.yy",},},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
+    {"id":{"name":"scr_build_map","path":"scripts/scr_build_map/scr_build_map.yy",},},
     {"id":{"name":"scr_globals","path":"scripts/scr_globals/scr_globals.yy",},},
     {"id":{"name":"spr_debug_enemy","path":"sprites/spr_debug_enemy/spr_debug_enemy.yy",},},
     {"id":{"name":"spr_debug_key","path":"sprites/spr_debug_key/spr_debug_key.yy",},},
