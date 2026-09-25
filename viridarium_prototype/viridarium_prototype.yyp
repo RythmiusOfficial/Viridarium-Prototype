@@ -19,6 +19,7 @@
   },
   "name":"viridarium_prototype",
   "resources":[
+    {"id":{"name":"obj_debug_enemy","path":"objects/obj_debug_enemy/obj_debug_enemy.yy",},},
     {"id":{"name":"obj_debug_player","path":"objects/obj_debug_player/obj_debug_player.yy",},},
     {"id":{"name":"obj_debug_wall","path":"objects/obj_debug_wall/obj_debug_wall.yy",},},
     {"id":{"name":"obj_world","path":"objects/obj_world/obj_world.yy",},},

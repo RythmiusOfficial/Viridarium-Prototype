@@ -10,6 +10,3 @@ draw_text(10, 130, "run: " + string(run));
 draw_text(10, 145, "root: " + string(rooted));
 draw_text(10, 160, "chem: " + string(chemicalactive));
 draw_text(10, 175, "see: " + string(perceiving));
-
-var _res = global.map[# global.custpx, global.custpy];
-draw_text(10, 190, "debugwall: " + string(_res));

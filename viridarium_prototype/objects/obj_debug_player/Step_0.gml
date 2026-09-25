@@ -1,56 +1,56 @@
 // INPUT CHECK
 // forward
-if keyboard_check_pressed(ord("W")) and !pressed {
+if keyboard_check_pressed(ord("W")) and !global.pressed {
 	forward = 1;
-	pressed = true;
+	global.pressed = true;
 }
 // backward
-if keyboard_check_pressed(ord("S")) and !pressed {
+if keyboard_check_pressed(ord("S")) and !global.pressed {
 	forward = -1;
-	pressed = true;
+	global.pressed = true;
 }
 // run
-if keyboard_check_pressed(vk_shift) and !pressed {
+if keyboard_check_pressed(vk_shift) and !global.pressed {
 	forward = 1;
 	run = true;
-	pressed = true;
+	global.pressed = true;
 }
 // rotate left
-if keyboard_check_pressed(ord("A")) and !pressed {
+if keyboard_check_pressed(ord("A")) and !global.pressed {
 	dir += turnsize;
-	pressed = true;
+	global.pressed = true;
 }
 // rotate right
-if keyboard_check_pressed(ord("D")) and !pressed{
+if keyboard_check_pressed(ord("D")) and !global.pressed {
 	dir -= turnsize;
-	pressed = true;
+	global.pressed = true;
 }
 // strafe left
-if keyboard_check_pressed(ord("Q")) and !pressed {
+if keyboard_check_pressed(ord("Q")) and !global.pressed {
 	strafe = -1;
-	pressed = true;
+	global.pressed = true;
 }
 // strafe right
-if keyboard_check_pressed(ord("E")) and !pressed {
+if keyboard_check_pressed(ord("E")) and !global.pressed {
 	strafe = 1;
-	pressed = true;
+	global.pressed = true;
 }
 // root
-if keyboard_check_pressed(vk_tab) and !pressed {
+if keyboard_check_pressed(vk_tab) and !global.pressed {
 	rooted = !rooted;	
-	pressed = true;
+	global.pressed = true;
 }
 // chemical active?
-if keyboard_check_pressed(vk_control) and !pressed {
+if keyboard_check_pressed(vk_control) and !global.pressed {
 	chemicalactive = !chemicalactive;
-	pressed = true;
+	global.pressed = true;
 }
 // perceive
-if keyboard_check_pressed(vk_space) and !pressed and !perceiving {
+if keyboard_check_pressed(vk_space) and !global.pressed and !perceiving {
 	perceiving = true;
 }
 // check if no inputs are being made and set all movement values to zero to prevent unwanted movement
-if !pressed {
+if !global.pressed {
 	forward = 0;
 	strafe = 0;
 }
@@ -65,7 +65,7 @@ if dir < 0 {
 image_index = (dir div turnsize);
 
 // APPLY VSP AND HSP BASED ON ROTATION DIRECTION
-if pressed = true {
+if global.pressed {
 	// forward
 	if abs(forward) = 1 {
 		if dir == 0 {
@@ -116,44 +116,22 @@ if run == true {
 		run = false;
 	}
 }
-/*
-if place_meeting(x + hsp, y, obj_debug_wall) {
-	hsp = 0;
-}
-if run == true {
-	if !place_meeting(x + (hsp * 2), y, obj_debug_wall) {
-		hsp *= 2;
-	} else {
-		run = false;	
-	}
-}
-if place_meeting(x, y + vsp, obj_debug_wall) {
-	vsp = 0;
-}
-if run == true {
-	if !place_meeting(x, y + (vsp * 2), obj_debug_wall) {
-		vsp *= 2;
-	} else {
-		run = false
-	}
-}
-*/
 
 // MOVE
 x += hsp;
 y += vsp;
+
 // update the custom coordinates
 for (i = 0; i < (run + 1); i ++) {
 	global.custpx += sign(hsp);
 	global.custpy += sign(vsp);
 }
 // if perceiving and an action goes by, close the perception
-if pressed and perceiving {
+if global.pressed and perceiving {
 	perceiving = false;
 }
 
+// re-init variables
 hsp = 0;
 vsp = 0;
-
-pressed = false;
 run = false;

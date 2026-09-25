@@ -19,7 +19,7 @@
    14 = 000000111000000
 */
 
-function scr_build_map(){
+function scr_build_map() {
 	var g = ds_grid_create(global.wwidth, global.wheight);
 	ds_grid_set_region(g, 0, 0, (global.wwidth - 1), (global.wheight - 1), 0);
 	
