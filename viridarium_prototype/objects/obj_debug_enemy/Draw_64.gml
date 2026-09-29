@@ -6,3 +6,6 @@ draw_text(400, 70, "ex: " + string(global.custex));
 draw_text(400, 85, "ey: " + string(global.custey));
 draw_text(400, 100, "test: " + string(global.map[# (global.custex + sign(ehsp)), global.custey]));
 draw_text(400, 115, "intersect: " + string(eintersect));
+draw_text(400, 130, "pathfinding: " + string(pathfinding));
+draw_text(400, 145, "path: " + string(path));
+draw_text(400, 160, "pathindex: " + string(pathindex));

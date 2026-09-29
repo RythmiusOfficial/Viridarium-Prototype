@@ -13,7 +13,9 @@ function enemymove() {
 		}
 		_leave = true;
 		if eintersect != 3 {
-			rotate();
+			if !pathfinding {
+				rotate();
+			}
 		}
 	}
 	if (!_leave) and (edir == 90 or edir == 270) {
@@ -28,7 +30,9 @@ function enemymove() {
 		}
 		_leave = true;
 		if eintersect != 3 {
-			rotate();
+			if !pathfinding {
+				rotate();
+			}
 		}
 	}
 }
@@ -62,6 +66,9 @@ function rotate() {
 }
 
 function movefix() {
+ehsp = 0;
+evsp = 0;
+
 if edir == 0 {
 	ehsp = estepsize;
 } else if edir == 90 {
@@ -109,13 +116,66 @@ function intersectrot() {
 	edircheck();
 }
 
+function pathfind() {
+	var _newpath = scr_pathfind(global.custex, global.custey, global.custpx, global.custpy);
+
+    // only reset index if the path changed
+    if (array_length(_newpath) > 0) {
+        path = _newpath;
+        pathindex = 0;
+	}
+	
+	if (pathindex < array_length(path)) {
+		var _next = path[pathindex];
+	    var _tx = _next[0];
+	    var _ty = _next[1];
+
+	    // move toward tile
+	    if (point_distance((x - global.mapx) / 8, (y - global.mapy) / 8, _tx, _ty) < 2) {
+		    pathindex++;
+		    if (pathindex >= array_length(path)) {
+		        pathfinding = false;
+		        return;
+		    }
+		    _next = path[pathindex];
+		    _tx = _next[0];
+		    _ty = _next[1];
+		}		
+		edir = point_direction((x - global.mapx) / 8, (y - global.mapy) / 8, _tx, _ty);
+		if (abs(edir - 0) < 45) edir = 0;
+		else if (abs(edir - 90) < 45) edir = 90;
+		else if (abs(edir - 180) < 45) edir = 180;
+		else edir = 270;
+
+		movefix();
+		edircheck();
+		enemymove();
+		show_debug_message("enemy: (" + string((x - global.mapx) / 8) + ", " + string((y - global.mapy) / 8) + ")");
+		show_debug_message("target: (" + string(_tx) + ", " + string(_ty) + ")");
+		show_debug_message("raw dir: " + string(point_direction((x - global.mapx) / 8, (y - global.mapy) / 8, _tx, _ty)));
+	}
+}
+
 // APPLY EVSP AND EHSP BASED ON EDIR
 movefix();
 edircheck();
 
+if global.pressed and (collision_circle(x, y, (estepsize * eradius), obj_debug_player, false, true)) {
+	pathfinding = true;
+	pathfind();
+} else {
+	path = 0;
+	pathfinding = false;
+}
+
 // MOVEMENT CHECKS PART II
-if global.pressed {
+if global.pressed and !pathfinding {
 	enemymove();
+}
+
+if global.pressed {
+	show_debug_message("cust: (" + string(global.custex) + ", " + string(global.custey) + ")");
+	show_debug_message("from pos: (" + string(global.custpx) + ", " + string(global.custpy) + ")");
 }
 
 // INTERSECTION CHECKS
@@ -124,21 +184,10 @@ eleft = bool(global.map[# (global.custex - 1), global.custey] == 1);
 eup = bool(global.map[# global.custex, (global.custey - 1)] == 1);
 edown = bool(global.map[# global.custex, (global.custey + 1)] == 1);
 
-if !eright {
-	eintersect += 1;	
-}
-
-if !eleft {
-	eintersect += 1;	
-}
-
-if !eup {
-	eintersect += 1;	
-}
-
-if !edown {
-	eintersect += 1;	
-}
+if !eright eintersect += 1;
+if !eleft eintersect += 1;
+if !eup eintersect += 1;
+if !edown eintersect += 1;
 
 if global.pressed {
 	if eintersect == 3 {

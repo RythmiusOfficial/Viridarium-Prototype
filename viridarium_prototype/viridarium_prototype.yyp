@@ -26,6 +26,7 @@
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
     {"id":{"name":"scr_build_map","path":"scripts/scr_build_map/scr_build_map.yy",},},
     {"id":{"name":"scr_globals","path":"scripts/scr_globals/scr_globals.yy",},},
+    {"id":{"name":"scr_pathfind","path":"scripts/scr_pathfind/scr_pathfind.yy",},},
     {"id":{"name":"spr_debug_enemy","path":"sprites/spr_debug_enemy/spr_debug_enemy.yy",},},
     {"id":{"name":"spr_debug_key","path":"sprites/spr_debug_key/spr_debug_key.yy",},},
     {"id":{"name":"spr_debug_player","path":"sprites/spr_debug_player/spr_debug_player.yy",},},

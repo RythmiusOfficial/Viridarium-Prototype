@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_pathfind",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_pathfind",
+  "parent":{
+    "name":"viridarium_prototype",
+    "path":"viridarium_prototype.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
