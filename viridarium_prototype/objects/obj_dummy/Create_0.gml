@@ -1,0 +1,29 @@
+sprite_index = f000;
+sprite_index = f001;
+sprite_index = f100;
+sprite_index = f101;
+sprite_index = flight_1;
+sprite_index = fwall_1;
+
+sprite_index = m000;
+sprite_index = m001;
+sprite_index = m100;
+sprite_index = m101;
+sprite_index = mlight_1;
+sprite_index = mlight_2;
+sprite_index = mwall_1;
+sprite_index = mwall_2;
+
+sprite_index = b001;
+sprite_index = b010;
+sprite_index = b011;
+sprite_index = b100;
+sprite_index = b101;
+sprite_index = b110;
+sprite_index = b111;
+sprite_index = blight_1;
+sprite_index = blight_2;
+sprite_index = blight_3;
+sprite_index = bwall_1;
+sprite_index = bwall_2;
+sprite_index = bwall_3;

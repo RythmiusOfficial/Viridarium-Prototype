@@ -1,7 +1,7 @@
 draw_text(10, 10, "custx: " + string(global.custpx));
 draw_text(10, 25, "custy: " + string(global.custpy));
-draw_text(10, 40, "direction: " + string(dir));
-draw_text(10, 55, "div turn: " + string(dir div turnsize));
+draw_text(10, 40, "direction: " + string(global.pdir));
+draw_text(10, 55, "div turn: " + string(global.pdir div turnsize));
 draw_text(10, 70, "forward: " + string(forward));
 draw_text(10, 85, "strafe: " + string(strafe));
 draw_text(10, 100, "hsp: " + string(hsp));

@@ -17,12 +17,12 @@ if keyboard_check_pressed(vk_shift) and !global.pressed {
 }
 // rotate left
 if keyboard_check_pressed(ord("A")) and !global.pressed {
-	dir += turnsize;
+	global.pdir += turnsize;
 	global.pressed = true;
 }
 // rotate right
 if keyboard_check_pressed(ord("D")) and !global.pressed {
-	dir -= turnsize;
+	global.pdir -= turnsize;
 	global.pressed = true;
 }
 // strafe left
@@ -55,24 +55,24 @@ if !global.pressed {
 	strafe = 0;
 }
 // limit rotation and apply image changes
-if dir > 359 {
-	dir = 0;	
+if global.pdir > 359 {
+	global.pdir = 0;	
 }
-if dir < 0 {
-	dir = 270;
+if global.pdir < 0 {
+	global.pdir = 270;
 }
 
-image_index = (dir div turnsize);
+image_index = (global.pdir div turnsize);
 
-// APPLY VSP AND HSP BASED ON ROTATION DIRECTION
+// APPLY VSP AND HSP BASED ON ROTATION global.pdirECTION
 if global.pressed {
 	// forward
 	if abs(forward) = 1 {
-		if dir == 0 {
+		if global.pdir == 0 {
 			hsp = stepsize * forward;
-		} else if dir == 90 {
+		} else if global.pdir == 90 {
 			vsp = -(stepsize * forward);
-		} else if dir == 180 {
+		} else if global.pdir == 180 {
 			hsp = -(stepsize * forward);
 		} else {
 			vsp = stepsize * forward;
@@ -80,11 +80,11 @@ if global.pressed {
 	}
 	// strafe
 	if abs(strafe) = 1 {
-		if dir == 0 {
+		if global.pdir == 0 {
 			vsp = stepsize * strafe;
-		} else if dir == 90 {
+		} else if global.pdir == 90 {
 			hsp = stepsize * strafe;
-		} else if dir == 180 {
+		} else if global.pdir == 180 {
 			vsp = -(stepsize * strafe);
 		} else {
 			hsp = -(stepsize * strafe);

@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"viridarium_prototype",
-    "path":"viridarium_prototype.yyp",
+    "name":"spr_debug",
+    "path":"folders/spr_debug.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
