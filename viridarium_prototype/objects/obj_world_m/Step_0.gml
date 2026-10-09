@@ -11,6 +11,7 @@ function buildasset() {
 	if m = "wall_2" sprite_index = mwall_2;
 }
 
-if global.pressed {
+if global.pressed or startup == 1 {
 	buildasset();
+	startup = 0;
 }

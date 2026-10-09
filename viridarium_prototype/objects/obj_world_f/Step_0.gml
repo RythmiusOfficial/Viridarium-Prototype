@@ -7,10 +7,9 @@ function buildasset() {
 	if f = "101" sprite_index = f101;
 	if f = "light_1" sprite_index = flight_1;
 	if f = "wall_1" sprite_index = fwall_1;
-	
-	
 }
 
-if global.pressed {
+if global.pressed or startup == 1 {
 	buildasset();
+	startup = 0;
 }
