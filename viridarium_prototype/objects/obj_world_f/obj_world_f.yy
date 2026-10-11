@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"f000",
-    "path":"sprites/f000/f000.yy",
+    "name":"f101",
+    "path":"sprites/f101/f101.yy",
   },
   "spriteMaskId":null,
   "visible":true,
